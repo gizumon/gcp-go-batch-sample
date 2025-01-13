@@ -6,11 +6,11 @@
     * [ ] How to write Mocks
   * [x] How to deploy (scheduler / functions / db)
 
-* [ ] Try Cloud Run job
-  * [ ] How to run code in LOCAL env
-  * [ ] How to write Tests
-    * [ ] How to write Mocks
-  * [ ] How to deploy (scheduler / Run job / db)
+* [x] Try Cloud Run job
+  * [x] How to run code in LOCAL env
+  * [x] How to write Tests
+    * [x] How to write Mocks
+  * [x] How to deploy (scheduler / Run job / db)
 
 ---
 
