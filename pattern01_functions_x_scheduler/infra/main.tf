@@ -6,11 +6,12 @@ resource "google_sql_database_instance" "cloud_sql_instance" {
   database_version = "MYSQL_8_0"
   region           = var.region
 
+  deletion_protection = false # Should not be false in the actual production
   settings {
     tier = "db-f1-micro" # Smallest instance tier
   }
   lifecycle {
-    prevent_destroy = true
+    # prevent_destroy = true
   }
 }
 

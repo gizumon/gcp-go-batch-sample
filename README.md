@@ -29,20 +29,30 @@ This repository is for making sure the system architecture of batch project in G
   * Cloud SQL for DB
   * Cloud Storage for deployment
 
-## Local Environment for functions
+## Tech Stacks
 
-```bash
-LOCAL_ONLY=true FUNCTION_TARGET=success go run cmd/main.go
-```
+### For Job Trigger/Manage
 
-```bash
-curl http://localhost:8080
-```
+| **Service**                    | **Cloud Scheduler** | **Cloud Tasks** | **Cloud Scheduler + Pub/Sub** |
+|--------------------------------|---------------------|----------------|--------------------------------|
+| **Time-Based Triggers**        | ✅ Yes              | ❌ No          | ✅ Yes                         |
+| **Task Queuing**               | ❌ No               | ✅ Yes         | ❌ No                          |
+| **Dynamic Task Creation**      | ❌ No               | ✅ Yes         | ❌ No                          |
+| **Event-Driven Workflow**      | ❌ No               | ❌ No          | ✅ Yes                         |
+| **Multi-Service Fan-Out**      | ❌ No               | ❌ No          | ✅ Yes                         |
+| **Retry Policies**             | ✅ Basic            | ✅ Advanced    | ✅ Yes                         |
+| **Workflow Orchestration**     | ❌ No               | ❌ Limited     | ❌ No                          |
 
-## Reference
+### For Job Processing
 
-* Code sample:
-  * https://github.com/GoogleCloudPlatform/golang-samples/tree/main/functions/functionsv2/helloworld
-* Local env sample:
-  * https://github.com/GoogleCloudPlatform/functions-framework-go?tab=readme-ov-file#quickstart-hello-world-on-your-local-machine
-
+| **Feature**                    | **Cloud Functions**                       | **Cloud Run Job**                      | **Cloud Batch**                       |
+|--------------------------------|-------------------------------------------|----------------------------------------|---------------------------------------|
+| **Event-Driven Execution**     | ✅ Yes                                    | ❌ No                                  | ❌ No                                 |
+| **Custom Runtime Support**     | ❌ Limited to supported languages         | ✅ Yes (Custom Containers)             | ✅ Yes (Custom VM Environments)       |
+| **Automatic Scaling**          | ✅ Yes                                    | ✅ Yes                                 | ❌ No                                 |
+| **Long-Running Jobs**          | ❌ No (Max 60mins execution / job)        | ✅ Yes (Max 7days execution / job)     | ✅ Yes (Unlimited?)                   |
+| **Job Dependencies**           | ❌ No                                     | ❌ No                                  | ✅ Yes (Job Dependencies)             |
+| **Real-Time Requests**         | ✅ Yes                                    | ❌ No                                  | ❌ No                                 |
+| **Massive Parallel Processing**| ❌ No                                     | ❌ No                                  | ✅ Yes                                |
+| **Resource Limits**            | ❌ Limited (CPU/Memory)                   | ✅ Configurable                        | ✅ Flexible (High Limits)             |
+| **Setup Complexity**           | ✅ Low                                    | ❌ Medium (Requires Docker)            | ❌ High (Complex Setup)               |

@@ -1,0 +1,6 @@
+project_id              = "gcp-go-batch-sample"
+region                  = "us-central1"
+cloud_sql_instance_name = "sql-instance"
+cloud_sql_user          = "user"
+cloud_sql_password      = "password"
+image                   = "sample-job"
