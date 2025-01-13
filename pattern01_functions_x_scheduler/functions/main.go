@@ -1,7 +1,7 @@
 package function
 
 import (
-	"gcp-go-batch-sample/batches"
+	"github.com/gcp-go-batch-sample/batches"
 
 	"github.com/GoogleCloudPlatform/functions-framework-go/functions"
 )

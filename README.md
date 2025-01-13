@@ -1,11 +1,16 @@
 # ToDo
 
-* [ ] Try Cloud functions in local
-  * [x] How to run Cloud functions in LOCAL
+* [x] Try Cloud functions
+  * [x] How to run code in LOCAL env
   * [ ] How to write Tests
     * [ ] How to write Mocks
-* [ ] Try scheduler (Cloud Scheduler / Cloud Tasks)
-* [ ] Try IaC by Terraform
+  * [x] How to deploy (scheduler / functions / db)
+
+* [ ] Try Cloud Run job
+  * [ ] How to run code in LOCAL env
+  * [ ] How to write Tests
+    * [ ] How to write Mocks
+  * [ ] How to deploy (scheduler / Run job / db)
 
 ---
 
@@ -13,10 +18,16 @@
 
 This repository is for making sure the system architecture of batch project in GCP.
 
-* Cloud Scheduler for cron scheduler
-* Cloud Tasks for batch management
-* Cloud Functions for batch processing
-* Cloud SQL for DB
+* Pattern1: Cloud functions x Cloud Scheduler
+  * Cloud Scheduler for cron scheduler
+  * Cloud Functions for batch processing
+  * Cloud SQL for DB
+  * Cloud Storage for deployment
+* Pattern2: Cloud Run job x Cloud Scheduler
+  * Cloud Scheduler for cron scheduler
+  * Cloud Run job for batch processing
+  * Cloud SQL for DB
+  * Cloud Storage for deployment
 
 ## Local Environment for functions
 

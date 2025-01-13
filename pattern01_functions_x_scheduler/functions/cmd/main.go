@@ -5,7 +5,7 @@ import (
 	"os"
 
 	// to call init function in function package
-	_ "gcp-go-batch-sample"
+	_ "github.com/gcp-go-batch-sample"
 
 	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
 )
